@@ -1,0 +1,9 @@
+- if notice.present?
+  p.alert.alert-info
+    a.close data-dismiss='alert' x
+    = notice
+
+- if alert.present?
+  p.alert.alert-error
+    a.close data-dismiss='alert' x
+    = alert
