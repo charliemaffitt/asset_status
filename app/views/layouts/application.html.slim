@@ -1,0 +1,11 @@
+doctype html
+html lang='en'
+  = render 'shared/head'
+  body
+    .container-fluid
+      .row-fluid
+        .span12.main-content
+          .span12
+            div.flash_messages
+              = render 'shared/flash_messages'
+            = yield
