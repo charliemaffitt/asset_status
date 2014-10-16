@@ -1,0 +1,10 @@
+= form_for [:admin, @asset_type] do |f|
+
+  p
+    = f.label :name
+    = f.text_field :name
+
+  = f.submit
+
+p
+  = link_to 'Back to Asset Types', admin_asset_types_path

@@ -1,0 +1,11 @@
+h1 Asset Types
+
+p
+  = link_to 'Create', new_admin_asset_type_path
+
+- @asset_types.each do |asset_type|
+  p
+    = asset_type.id
+    = asset_type.name
+    = asset_type.created_at
+    = link_to 'Edit', edit_admin_asset_type_path(asset_type)
