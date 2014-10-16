@@ -34,6 +34,6 @@ class Admin::AssetsController < ApplicationController
   private
 
   def asset_params
-    params.require(:asset).permit(:created_at)
+    params.require(:asset).permit(:asset_type_id)
   end
 end
