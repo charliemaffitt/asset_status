@@ -1,0 +1,12 @@
+h1 Assets
+
+= @assets.count
+
+p
+  = link_to 'Create', new_admin_asset_path
+
+- @assets.each do |asset|
+  p
+    = asset.id
+    = asset.created_at
+    = link_to 'Edit', edit_admin_asset_path(asset)
