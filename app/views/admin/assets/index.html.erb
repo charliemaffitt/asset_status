@@ -3,5 +3,6 @@
 <%= @assets.count %>
 
 <% @assets.each do |asset| %>
-  ASSET!
+  <%= asset.id %>
+  <%= asset.created_at %>
 <% end %>
