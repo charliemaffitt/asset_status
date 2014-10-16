@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20141016200431) do
   create_table "assets", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "asset_type_id"
   end
 
 end
