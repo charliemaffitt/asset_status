@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20141009211346) do
   enable_extension "plpgsql"
 
   create_table "assets", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
