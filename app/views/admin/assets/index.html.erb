@@ -2,7 +2,13 @@
 
 <%= @assets.count %>
 
+<p>
+  <%= link_to 'Create', new_admin_asset_path %>
+</p>
+
 <% @assets.each do |asset| %>
-  <%= asset.id %>
-  <%= asset.created_at %>
+  <p>
+    <%= asset.id %>
+    <%= asset.created_at %>
+  </p>
 <% end %>
