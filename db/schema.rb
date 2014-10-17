@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017024256) do
+ActiveRecord::Schema.define(version: 20141017024705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141017024256) do
     t.integer  "asset_type_id"
     t.integer  "borrower_id"
     t.integer  "admin_id"
+    t.text     "description"
   end
 
   add_index "assets", ["admin_id"], name: "index_assets_on_admin_id", using: :btree
