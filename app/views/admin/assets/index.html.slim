@@ -9,13 +9,37 @@
 
 h1 Assets
 
-= @assets.count
+h5
+  = @assets.count
 
 p
   = link_to 'Create', new_admin_asset_path
 
-- @assets.each do |asset|
-  p
-    = asset.id
-    = asset.created_at
-    = link_to 'Edit', edit_admin_asset_path(asset)
+table.table.table-striped.table-bordered.table-hover
+  tr
+    th
+      | ID
+    th
+      | Asset Type
+    th
+      | Description
+    th
+      | Admin
+    th
+      .pull-right
+        | Actions
+
+  - @assets.each do |asset|
+    tr
+      td
+        = asset.id
+      td
+        = asset.asset_type
+      td
+        = asset.description
+      td
+        = asset.admin_id
+      td
+        .pull-right
+          = link_to 'Edit', edit_admin_asset_path(asset)
+
