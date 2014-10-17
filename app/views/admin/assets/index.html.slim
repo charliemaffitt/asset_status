@@ -26,6 +26,8 @@ table.table.table-striped.table-bordered.table-hover
     th
       | Admin
     th
+      | Borrower
+    th
       .pull-right
         | Actions
 
@@ -38,7 +40,9 @@ table.table.table-striped.table-bordered.table-hover
       td
         = asset.description
       td
-        = asset.admin_id
+        = asset.admin_email
+      td
+        = asset.borrower_email if asset.borrower
       td
         .pull-right
           = link_to 'Edit', edit_admin_asset_path(asset)
