@@ -4,4 +4,9 @@ class Asset < ActiveRecord::Base
   validates :admin_id, presence: true
 
   delegate :name, to: :asset_type, prefix: true
+  delegate :email, to: :admin, prefix: true
+  delegate :email, to: :borrower, prefix: true
+
+  belongs_to :admin, class_name: 'User'
+  belongs_to :borrower, class_name: 'User'
 end
