@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20141017031833) do
     t.integer  "borrower_id"
     t.integer  "admin_id"
     t.text     "description"
-    t.string   "status"
+    t.string   "status",        default: "Available"
   end
 
   add_index "assets", ["admin_id"], name: "index_assets_on_admin_id", using: :btree
