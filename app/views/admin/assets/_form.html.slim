@@ -2,7 +2,16 @@
 
   p
     = f.label :asset_type_id
-    = f.select :asset_type_id, AssetType.all.collect { |a| [a.name, a.id] }
+    = f.select :asset_type_id, AssetType.all.collect { |a| [a.name, a.id] }, prompt: 'Please Select'
+  p
+    = f.label :admin_id
+    = f.select :admin_id, User.all.collect { |u| [u.email, u.id] }, prompt: 'Please Select'
+  p
+    = f.label :borrower_id
+    = f.select :borrower_id, User.all.collect { |u| [u.email, u.id] }, include_blank: true
+  p
+    = f.label :description
+    = f.text_area :description
 
   = f.submit
 

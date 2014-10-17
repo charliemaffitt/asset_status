@@ -35,6 +35,6 @@ class Admin::AssetsController < ApplicationController
   private
 
   def asset_params
-    params.require(:asset).permit(:asset_type_id)
+    params.require(:asset).permit(:asset_type_id, :admin_id, :borrower_id)
   end
 end
