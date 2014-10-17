@@ -44,7 +44,7 @@ table.table.table-striped.table-bordered.table-hover
       td
         = asset.status
       td
-        = asset.admin_email
+        = asset.admin_email if asset.admin
       td
         = asset.borrower_email if asset.borrower
       td
