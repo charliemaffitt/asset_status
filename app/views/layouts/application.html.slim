@@ -10,6 +10,7 @@ html lang='en'
               = render 'shared/flash_messages'
             .row-fluid
               .span2
-                = render 'shared/admin_nav'
+                - if user_signed_in?
+                  = render 'shared/admin_nav'
               .span10
                 = yield
