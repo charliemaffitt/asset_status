@@ -53,9 +53,9 @@ table.table.table-striped.table-bordered.table-hover
       td
         = asset.status
       td
-        = asset.admin_email
+        = asset.admin_full_name
       td
-        = asset.borrower_email if asset.borrower
+        = asset.borrower_full_name if asset.borrower
       td
         .pull-right
           = link_to 'Edit', edit_admin_asset_path(asset), class: 'btn btn-mini'

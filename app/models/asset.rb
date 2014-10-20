@@ -5,7 +5,9 @@ class Asset < ActiveRecord::Base
 
   delegate :name, to: :asset_type, prefix: true
   delegate :email, to: :admin, prefix: true
+  delegate :full_name, to: :admin, prefix: true
   delegate :email, to: :borrower, prefix: true
+  delegate :full_name, to: :borrower, prefix: true
 
   belongs_to :admin, class_name: 'User'
   belongs_to :borrower, class_name: 'User'
