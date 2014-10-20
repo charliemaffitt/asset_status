@@ -5,9 +5,28 @@ h1 Asset Types
 p
   = link_to 'Create', new_admin_asset_type_path
 
-- @asset_types.each do |asset_type|
-  p
-    = asset_type.id
-    = asset_type.name
-    = asset_type.created_at
-    = link_to 'Edit', edit_admin_asset_type_path(asset_type)
+table.table.table-striped.table-bordered.table-hover
+  tr
+    th
+      | ID
+    th
+      | Name
+    th
+      | Created At
+    th
+      .pull-right
+        | Actions
+
+
+  - @asset_types.each do |asset_type|
+    tr
+      td
+        = asset_type.id
+      td
+        = asset_type.name
+      td
+        = asset_type.created_at
+      td
+        .pull-right
+          = link_to 'Edit', edit_admin_asset_type_path(asset_type)
+
