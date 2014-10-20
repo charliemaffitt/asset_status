@@ -31,6 +31,7 @@ gem 'spring',        group: :development
 
 # Authentication
 gem 'devise'
+gem 'devise_invitable'
 
 gem 'rails_12factor', group: :production
 
