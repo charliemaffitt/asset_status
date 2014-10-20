@@ -10,7 +10,7 @@ class Admin::UsersController < Admin::AdminController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    if @user.invite!
       respond_with @user, location: admin_users_path
     else
       render 'new'
@@ -25,7 +25,7 @@ class Admin::UsersController < Admin::AdminController
     @user = User.find(params[:id])
     if params[:user][:password].blank?
        params[:user].delete("password")
-     end
+    end
     if @user.update_attributes(user_params)
       respond_with @user, location: admin_users_path
     else
