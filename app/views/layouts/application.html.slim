@@ -8,4 +8,8 @@ html lang='en'
           .span12
             div.flash_messages
               = render 'shared/flash_messages'
-            = yield
+            .row-fluid
+              .span2
+                = render 'shared/admin_nav'
+              .span10
+                = yield
