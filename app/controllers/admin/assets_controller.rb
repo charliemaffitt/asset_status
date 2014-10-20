@@ -2,6 +2,7 @@ class Admin::AssetsController < Admin::AdminController
 
   def index
     @assets = Asset.all
+    @asset_sum = @assets.pluck(:value).sum
   end
 
   def new

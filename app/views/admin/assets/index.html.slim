@@ -2,8 +2,8 @@
 
 h1 Assets
 
-h5
-  = @assets.count
+p
+  = "#{@assets.count} assets with a total value of #{number_to_currency(@asset_sum)}"
 
 p
   = link_to 'Create', new_admin_asset_path
@@ -47,7 +47,7 @@ table.table.table-striped.table-bordered.table-hover
       td
         = asset.serial_number
       td
-        = asset.value
+        = number_to_currency(asset.value)
       td
         = asset.description
       td
