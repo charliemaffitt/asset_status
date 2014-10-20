@@ -23,6 +23,9 @@ class Admin::UsersController < Admin::AdminController
 
   def update
     @user = User.find(params[:id])
+    if params[:user][:password].blank?
+       params[:user].delete("password")
+     end
     if @user.update_attributes(user_params)
       respond_with @user, location: admin_users_path
     else
