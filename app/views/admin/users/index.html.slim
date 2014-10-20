@@ -19,6 +19,10 @@ table.table.table-striped.table-bordered.table-hover
     th
       | Last Name
     th
+      | Sign In Count
+    th
+      | Last Sign In
+    th
       .pull-right
         | Actions
 
@@ -32,6 +36,10 @@ table.table.table-striped.table-bordered.table-hover
         = user.first_name
       td
         = user.last_name
+      td
+        = user.sign_in_count
+      td
+        = user.last_sign_in_at
       td
         .pull-right
           = link_to 'Edit', edit_admin_user_path(user), class: 'btn btn-mini'
