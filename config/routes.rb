@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :assets
     resources :asset_types
     resources :users
+    resources :dashboard, only: :index
   end
 
   # Example resource route with options:
