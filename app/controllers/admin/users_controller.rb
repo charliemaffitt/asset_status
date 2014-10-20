@@ -1,6 +1,4 @@
-class Admin::UsersController < ApplicationController
-  respond_to :html
-  before_filter :authenticate_user!
+class Admin::UsersController < Admin::AdminController
 
   def index
     @users = User.all

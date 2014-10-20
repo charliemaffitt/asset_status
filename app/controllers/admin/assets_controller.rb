@@ -1,6 +1,4 @@
-class Admin::AssetsController < ApplicationController
-  respond_to :html
-  before_filter :authenticate_user!
+class Admin::AssetsController < Admin::AdminController
 
   def index
     @assets = Asset.all
