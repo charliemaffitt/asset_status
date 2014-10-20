@@ -10,8 +10,9 @@ html lang='en'
               = render 'shared/flash_messages'
             .row-fluid
               .span2
-                p.sorbalogo_nav
-                  = image_tag 'sorbalogo_lrg.jpg'
+                - unless controller_name == 'default'
+                  p.sorbalogo_nav
+                    = image_tag 'sorbalogo_lrg.jpg'
                 - if user_signed_in?
                   = render 'shared/admin_nav'
               .span10
