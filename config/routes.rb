@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :assets
     resources :asset_types
+    resources :users
   end
 
   # Example resource route with options:
