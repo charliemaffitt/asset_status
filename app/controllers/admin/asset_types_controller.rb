@@ -1,7 +1,7 @@
 class Admin::AssetTypesController < Admin::AdminController
 
   def index
-    @asset_types = AssetType.all
+    @asset_types = AssetType.order('created_at DESC')
   end
 
   def new
