@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020172243) do
+ActiveRecord::Schema.define(version: 20141020210632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20141020172243) do
     t.string   "status",        default: "Available"
     t.string   "brand"
     t.string   "model"
-    t.float    "value"
+    t.float    "value",         default: 0.0
     t.string   "serial_number"
   end
 
