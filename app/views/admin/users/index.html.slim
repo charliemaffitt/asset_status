@@ -1,11 +1,4 @@
-
-- if user_signed_in?
-  p.pull-right
-    | Signed in as 
-    = current_user.email
-    |  | 
-    = link_to('Logout', destroy_user_session_path, method: :delete)
-    
+= render 'shared/admin_header'
 
 h1 Users
 
