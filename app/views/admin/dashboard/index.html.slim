@@ -1,5 +1,16 @@
+= render 'shared/admin_header'
+
 h1
   | Admin Dashboard
 
 p
-  | Whaddup Son
+  | Total User Count: #{User.all.count}
+
+p
+  | Total Asset Count: #{Asset.all.count}
+
+p
+  | Total Asset Value: #{number_to_currency(Asset.total_value_sum)}
+
+p
+  | Choose one of the links to the left to add or edit data

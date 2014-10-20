@@ -11,4 +11,8 @@ class Asset < ActiveRecord::Base
 
   belongs_to :admin, class_name: 'User'
   belongs_to :borrower, class_name: 'User'
+
+  def self.total_value_sum
+    pluck(:value).sum
+  end
 end
