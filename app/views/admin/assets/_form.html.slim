@@ -12,6 +12,9 @@
     = f.label :borrower_id
     = f.select :borrower_id, User.all.collect { |u| [u.full_name, u.id] }, include_blank: true
   p
+    = f.label :borrowed_on
+    = f.date_select :borrowed_on, include_blank: true
+  p
     = f.label :brand
     = f.text_field :brand
   p

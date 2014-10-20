@@ -29,6 +29,8 @@ table.table.table-striped.table-bordered.table-hover
     th
       | Borrower
     th
+      | Borrowed Date
+    th
       .pull-right
         | Actions
 
@@ -52,6 +54,8 @@ table.table.table-striped.table-bordered.table-hover
         = asset.admin_full_name
       td
         = asset.borrower_full_name if asset.borrower
+      td
+        = asset.borrowed_on
       td
         .pull-right
           = link_to 'Edit', edit_admin_asset_path(asset), class: 'btn btn-mini'

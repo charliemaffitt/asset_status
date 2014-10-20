@@ -40,7 +40,7 @@ class Admin::AssetsController < Admin::AdminController
 
   def asset_params
     params.require(:asset)
-      .permit(:asset_type_id, :admin_id, :borrower_id,
+      .permit(:asset_type_id, :admin_id, :borrower_id, :borrowed_on,
               :brand, :description, :model, :serial_number, :status, :value)
   end
 end
