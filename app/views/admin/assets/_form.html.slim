@@ -10,6 +10,18 @@
     = f.label :borrower_id
     = f.select :borrower_id, User.all.collect { |u| [u.email, u.id] }, include_blank: true
   p
+    = f.label :brand
+    = f.text_field :brand
+  p
+    = f.label :model
+    = f.text_field :model
+  p
+    = f.label :serial_number
+    = f.text_field :serial_number
+  p
+    = f.label :value
+    = f.text_field :value
+  p
     = f.label :description
     = f.text_area :description
   p
