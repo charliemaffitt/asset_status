@@ -28,3 +28,4 @@ table.table.table-striped.table-bordered.table-hover
       td
         .pull-right
           = link_to 'Edit', edit_admin_asset_type_path(asset_type)
+          = link_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger'

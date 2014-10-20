@@ -58,5 +58,6 @@ table.table.table-striped.table-bordered.table-hover
         = asset.borrower_email if asset.borrower
       td
         .pull-right
-          = link_to 'Edit', edit_admin_asset_path(asset)
+          = link_to 'Edit', edit_admin_asset_path(asset), class: 'btn btn-mini'
+          = link_to 'Delete', admin_asset_path(asset), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger'
 

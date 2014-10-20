@@ -30,6 +30,12 @@ class Admin::AssetTypesController < Admin::AdminController
     end
   end
 
+  def destroy
+    @asset_type = AssetType.find(params[:id])
+    @asset_type.destroy
+    redirect_to admin_asset_types_path
+  end
+
   private
 
   def asset_params
