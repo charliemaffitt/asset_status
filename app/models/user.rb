@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :activities, inverse_of: :user
+
+  validates :user_id, presence: true
+  validates :date, presence: true
+
   def full_name
     [first_name, last_name].join(" ")
   end
