@@ -11,8 +11,6 @@ p
 table.table.table-striped.table-bordered.table-hover
   tr
     th
-      | ID
-    th
       | Asset Type
     th
       | Brand
@@ -36,8 +34,6 @@ table.table.table-striped.table-bordered.table-hover
 
   - @assets.each do |asset|
     tr
-      td
-        = asset.id
       td
         = asset.asset_type_name
       td
