@@ -1,7 +1,37 @@
 h1 Assets
 
-= @assets.count
+table.table.table-striped.table-bordered.table-hover
+  tr
+    th
+      | Asset Type
+    th
+      | Brand
+    th
+      | Model
+    th
+      | Description
+    th
+      | Status
+    th
+      | Keeper
+    th
+      .pull-right
+        | Actions
 
-- @assets.each do |asset|
-  p 
-    = asset.asset_type_name
+  - @assets.each do |asset|
+    tr
+      td
+        = asset.asset_type_name
+      td
+        = asset.brand
+      td
+        = asset.model
+      td
+        = asset.description
+      td
+        = asset.status
+      td
+        = asset.admin_full_name
+      td
+        .pull-right
+          = link_to 'Check out', '#', class: 'btn btn-mini'
