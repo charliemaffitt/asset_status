@@ -34,5 +34,4 @@ table.table.table-striped.table-bordered.table-hover
         = asset.admin_full_name
       td
         .pull-right
-          = link_to 'Check out', '#', class: 'btn btn-mini'
-          = asset.available?
+          = link_to 'Check out', '#', class: 'btn btn-mini' if asset.available?
