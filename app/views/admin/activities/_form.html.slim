@@ -1,0 +1,18 @@
+= render 'shared/errors', object: @activity
+
+= form_for [:admin, @activity] do |f|
+
+  p
+    = f.label :user_id
+    = f.select :user_id, User.all.collect { |u| [u.full_name, u.id] }, prompt: 'Please Select'
+  p
+    = f.label :date
+    = f.date_select :date
+  p
+    = f.label :hours
+    = f.text_field :hours
+
+  = f.submit
+
+p
+  = link_to 'Back to Activities', admin_activities_path

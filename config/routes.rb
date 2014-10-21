@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :assets
   
   namespace :admin do
+    resources :activities
     resources :assets
     resources :asset_types
     resources :users
