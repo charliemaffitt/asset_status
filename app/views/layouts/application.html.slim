@@ -3,17 +3,18 @@ html lang='en'
   = render 'shared/head'
   body
     .container-fluid
-      .row-fluid
-        .span12.main-content
-          .span12
-            div.flash_messages
-              = render 'shared/flash_messages'
-            .row-fluid
-              .span2
-                - unless controller_name == 'default'
-                  p.sorbalogo_nav
-                    = image_tag 'sorbalogo_lrg.jpg'
-                - if user_signed_in?
-                  = render 'shared/admin_nav'
-              .span10
-                = yield
+      .row-fluid.header-margin
+        .span12
+          div.flash_messages
+            = render 'shared/flash_messages'
+          .row-fluid
+            .span1
+            .span2
+              - unless controller_name == 'default'
+                p.sorbalogo_nav
+                  = image_tag 'sorbalogo_lrg.jpg'
+              - if user_signed_in?
+                = render 'shared/admin_nav'
+            .span8.main-content
+              = yield
+            .span1
