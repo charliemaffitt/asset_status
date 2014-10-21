@@ -12,6 +12,8 @@ table.table.table-striped.table-bordered.table-hover
     th
       | Quantity
     th
+      | Investment
+    th
       .pull-right
         | Actions
 
@@ -21,6 +23,8 @@ table.table.table-striped.table-bordered.table-hover
         = asset_type.name
       td
         = asset_type.assets_count
+      td
+        = number_to_currency(asset_type.investment_total)
       td
         .pull-right
           = link_to 'Edit', edit_admin_asset_type_path(asset_type), class: 'btn btn-mini'
