@@ -13,6 +13,8 @@ table.table.table-striped.table-bordered.table-hover
     th
       | Name
     th
+      | Volunteer Hours
+    th
       .pull-right
         | Actions
 
@@ -20,6 +22,8 @@ table.table.table-striped.table-bordered.table-hover
     tr
       td
         = location.name
+      td
+        = location.total_work_hours
       td
         .pull-right
           = link_to 'Edit', edit_admin_location_path(location), class: 'btn btn-mini'
