@@ -51,6 +51,10 @@ group :test, :development do
   gem 'rspec-rails', '2.14'
 end
 
+group :test do
+  gem 'factory_girl_rails' #Factory Girl w/ Rails integration
+end
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
