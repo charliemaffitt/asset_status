@@ -10,6 +10,8 @@ table.table.table-striped.table-bordered.table-hover
     th
       | Name
     th
+      | Quantity
+    th
       .pull-right
         | Actions
 
@@ -17,6 +19,8 @@ table.table.table-striped.table-bordered.table-hover
     tr
       td
         = asset_type.name
+      td
+        = asset_type.assets_count
       td
         .pull-right
           = link_to 'Edit', edit_admin_asset_type_path(asset_type), class: 'btn btn-mini'
