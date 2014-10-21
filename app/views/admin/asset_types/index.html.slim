@@ -8,8 +8,6 @@ p
 table.table.table-striped.table-bordered.table-hover
   tr
     th
-      | ID
-    th
       | Name
     th
       .pull-right
@@ -17,8 +15,6 @@ table.table.table-striped.table-bordered.table-hover
 
   - @asset_types.each do |asset_type|
     tr
-      td
-        = asset_type.id
       td
         = asset_type.name
       td
