@@ -48,6 +48,7 @@ gem 'thin'
 group :test, :development do
   gem 'heroku'
   gem 'pry-rails' # Debugging
+  gem 'minitest'
   gem 'rspec-rails', '2.14'
 end
 
