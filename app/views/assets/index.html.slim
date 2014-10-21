@@ -35,3 +35,4 @@ table.table.table-striped.table-bordered.table-hover
       td
         .pull-right
           = link_to 'Check out', '#', class: 'btn btn-mini' if asset.available?
+          = link_to 'Check in', '#', class: 'btn btn-mini' if asset.checked_out? && asset.borrower_id == current_user.id
