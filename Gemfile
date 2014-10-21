@@ -24,6 +24,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # server
 gem 'thin'
 
+# heroku cli
+gem 'heroku'
+
 # html markup
 gem 'slim'
 # css and styling
