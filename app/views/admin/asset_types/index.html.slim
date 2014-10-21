@@ -3,6 +3,9 @@
 h1 Asset Types
 
 p
+  = "#{@asset_types.count} asset types with a total value of #{number_to_currency(Asset.total_value_sum)}"
+
+p
   = link_to 'Create', new_admin_asset_type_path
 
 table.table.table-striped.table-bordered.table-hover

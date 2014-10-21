@@ -2,8 +2,8 @@
 
 h1 Users
 
-h5
-  = @users.count
+p
+  | #{@users.count} Current Users
 
 p
   = link_to 'Create', new_admin_user_path
