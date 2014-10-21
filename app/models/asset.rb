@@ -1,4 +1,6 @@
 class Asset < ActiveRecord::Base
+  include AASM
+
   belongs_to :asset_type, inverse_of: :assets
   validates :asset_type_id, presence: true
   validates :admin_id, presence: true
@@ -11,6 +13,11 @@ class Asset < ActiveRecord::Base
 
   belongs_to :admin, class_name: 'User'
   belongs_to :borrower, class_name: 'User'
+
+  aasm :column => :status do
+    state :available, :initial => true
+    state :checked_out
+  end
 
   def self.total_value_sum
     pluck(:value).sum
