@@ -1,7 +1,7 @@
 class Admin::LocationsController < Admin::AdminController
 
   def index
-    @locations = Location.order('created_at DESC')
+    @locations = Location.order('name')
   end
 
   def new
