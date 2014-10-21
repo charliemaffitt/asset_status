@@ -21,9 +21,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# heroku cli
-gem 'heroku'
-
 # html markup
 gem 'slim'
 # css and styling
@@ -48,9 +45,14 @@ gem 'rails_12factor', group: :production
 # Use thin as the app server
 gem 'thin'
 
+group :test, :development do
+  gem 'heroku'
+  gem 'pry-rails' # Debugging
+  gem 'rspec-rails', '2.14'
+end
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
