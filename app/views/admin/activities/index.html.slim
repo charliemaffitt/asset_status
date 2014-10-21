@@ -15,7 +15,13 @@ table.table.table-striped.table-bordered.table-hover
     th
       | User
     th
+      | Location
+    th
       | Hours
+    th
+      | Travel Hours
+    th
+      | Description
     th
       .pull-right
         | Actions
@@ -27,7 +33,13 @@ table.table.table-striped.table-bordered.table-hover
       td
         = activity.user.full_name
       td
+        = activity.location.name
+      td
         = activity.hours
+      td
+        = activity.travel_hours
+      td
+        = activity.description
       td
         .pull-right
           = link_to 'Edit', edit_admin_activity_path(activity), class: 'btn btn-mini'

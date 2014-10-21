@@ -40,6 +40,6 @@ class Admin::ActivitiesController < Admin::AdminController
 
   def activity_params
     params.require(:activity)
-      .permit(:user_id, :date, :description, :hours, :travel_hours)
+      .permit(:user_id, :date, :description, :hours, :location_id, :travel_hours)
   end
 end
