@@ -19,6 +19,10 @@ class Asset < ActiveRecord::Base
     state :checked_out
   end
 
+  def titleized_status
+    status.to_s.titleize
+  end
+
   def self.total_value_sum
     pluck(:value).sum
   end
