@@ -1,7 +1,7 @@
 class Admin::ActivitiesController < Admin::AdminController
 
   def index
-    @activities = Activity.order('created_at DESC')
+    @activities = Activity.order('date DESC')
   end
 
   def new
