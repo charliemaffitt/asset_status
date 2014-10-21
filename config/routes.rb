@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :activities
     resources :assets
     resources :asset_types
+    resources :locations
     resources :users
     resources :dashboard, only: :index
   end

@@ -1,0 +1,12 @@
+= render 'shared/errors', object: @location
+
+= form_for [:admin, @location] do |f|
+
+  p
+    = f.label :name
+    = f.text_field :name
+
+  = f.submit
+
+p
+  = link_to 'Back to Locations', admin_locations_path

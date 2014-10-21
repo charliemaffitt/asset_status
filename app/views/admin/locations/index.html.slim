@@ -1,0 +1,26 @@
+= render 'shared/admin_header'
+
+h1 Locations
+
+p
+  = "#{@locations.count} locations"
+
+p
+  = link_to 'Create', new_admin_location_path
+
+table.table.table-striped.table-bordered.table-hover
+  tr
+    th
+      | Name
+    th
+      .pull-right
+        | Actions
+
+  - @locations.each do |location|
+    tr
+      td
+        = location.name
+      td
+        .pull-right
+          = link_to 'Edit', edit_admin_location_path(location), class: 'btn btn-mini'
+          = link_to 'Delete', admin_location_path(location), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger'
