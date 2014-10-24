@@ -1,4 +1,5 @@
 class Admin::AssetsController < Admin::AdminController
+  require 'csv'
 
   def index
     @assets = Asset.order('created_at DESC')
@@ -34,6 +35,16 @@ class Admin::AssetsController < Admin::AdminController
     @asset = Asset.find(params[:id])
     @asset.destroy
     redirect_to admin_assets_path
+  end
+
+  def export
+    CSV.open("/tmp/assets_export.csv", "wb") do |csv|
+      assets = Asset.all
+      assets.each do |asset|
+        csv << [asset.asset_type_name, asset.description]
+      end
+    end
+    send_file '/tmp/assets_export.csv'
   end
 
   private
