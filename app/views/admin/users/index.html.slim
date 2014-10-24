@@ -11,11 +11,11 @@ p
 table.table.table-striped.table-bordered.table-hover
   tr
     th
-      | Email
-    th
       | First Name
     th
       | Last Name
+    th
+      | Email
     th
       | Sign In Count
     th
@@ -27,11 +27,11 @@ table.table.table-striped.table-bordered.table-hover
   - @users.each do |user|
     tr
       td
-        = user.email
-      td
         = user.first_name
       td
         = user.last_name
+      td
+        = user.email
       td
         = user.sign_in_count
       td
