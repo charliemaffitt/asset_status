@@ -35,6 +35,7 @@ gem 'aasm'
 # Authentication
 gem 'devise'
 gem 'devise_invitable'
+gem 'doorkeeper'
 
 gem 'rails_12factor', group: :production
 
