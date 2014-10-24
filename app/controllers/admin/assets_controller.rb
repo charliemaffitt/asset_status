@@ -41,7 +41,7 @@ class Admin::AssetsController < Admin::AdminController
     CSV.open("/tmp/assets_export.csv", "wb") do |csv|
       assets = Asset.all
       assets.each do |asset|
-        csv << [asset.asset_type_name, asset.description]
+        csv << [asset.asset_type_name, asset.description, asset.value, asset.status, asset.brand, asset.model, asset.serial_number]
       end
     end
     send_file '/tmp/assets_export.csv'
