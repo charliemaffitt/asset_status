@@ -11,8 +11,6 @@ p
 table.table.table-striped.table-bordered.table-hover
   tr
     th
-      | ID
-    th
       | Email
     th
       | First Name
@@ -28,8 +26,6 @@ table.table.table-striped.table-bordered.table-hover
 
   - @users.each do |user|
     tr
-      td
-        = user.id
       td
         = user.email
       td
