@@ -31,7 +31,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :activities
-    resources :assets
+    resources :assets do
+      get :export, on: :collection
+    end
     resources :asset_types
     resources :locations
     resources :users

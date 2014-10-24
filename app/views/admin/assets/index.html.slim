@@ -57,3 +57,5 @@ table.table.table-striped.table-bordered.table-hover
           = link_to 'Edit', edit_admin_asset_path(asset), class: 'btn btn-mini'
           = link_to 'Delete', admin_asset_path(asset), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger'
 
+p
+  = link_to 'Export to CSV', export_admin_assets_path
