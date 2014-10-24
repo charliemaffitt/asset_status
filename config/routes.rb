@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  # scope 'api' do
+  #   scope 'v1' do
+  #     # use_doorkeeper
+  #   end
+  # end
+
   resources :assets do
     member do
       put :check_out
@@ -29,6 +35,15 @@ Rails.application.routes.draw do
     resources :locations
     resources :users
     resources :dashboard, only: :index
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :assets, only: [:index] do
+          put :check_out, on: :member
+          put :check_in, on: :member
+      end
+    end
   end
 
   # Example resource route with options:
