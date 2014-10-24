@@ -11,19 +11,19 @@ Doorkeeper.configure do
   end
 
   resource_owner_from_credentials do |routes|
-    user = User.find_for_database_authentication(:username => params[:username])
+    user = User.find_for_database_authentication(:email => params[:username])
     user if user && user.valid_password?(params[:password])
   end
 
   # If you want to restrict access to the web interface for adding oauth authorized applications, you need to declare the block below.
-  admin_authenticator do
-    # Put your admin authentication logic here.
-    if current_user.admi
-      redirect_to admin_oauth_applications_path
-    else
-      redirect_to new_user_session_path
-    end
-  end
+  # admin_authenticator do
+  #   # Put your admin authentication logic here.
+  #   if current_user.admin?
+  #     redirect_to oauth_applications_path
+  #   else
+  #     redirect_to new_user_session_path
+  #   end
+  # end
 
   # Authorization Code expiration time (default 10 minutes).
   # authorization_code_expires_in 10.minutes
