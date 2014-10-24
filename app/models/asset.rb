@@ -19,12 +19,12 @@ class Asset < ActiveRecord::Base
     state :checked_out
   end
 
-  def check_out
-    update_attribute(:status, :checked_out)
+  def check_out(borrower)
+    update_attributes({status: :checked_out, borrower_id: borrower.id, borrowed_on: Date.today})
   end
 
   def check_in
-    update_attribute(:status, :available)
+    update_attributes({status: :available, borrower_id: nil, borrowed_on: nil})
   end
 
   def titleized_status

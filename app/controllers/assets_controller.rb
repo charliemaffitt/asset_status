@@ -8,7 +8,7 @@ class AssetsController < ApplicationController
   end
 
   def check_out
-    asset.check_out
+    asset.check_out(current_user)
     respond_with asset, location: assets_path, status: :no_content
   end
 
