@@ -6,9 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :activities, inverse_of: :user
 
-  validates :user_id, presence: true
-  validates :date, presence: true
-
   def full_name
     [first_name, last_name].join(" ")
   end
