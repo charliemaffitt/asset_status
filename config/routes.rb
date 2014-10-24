@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      resources :activities
       resources :assets, only: [:index] do
           put :check_out, on: :member
           put :check_in, on: :member
