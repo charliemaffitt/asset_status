@@ -9,12 +9,12 @@ class AssetsController < ApplicationController
 
   def check_out
     asset.check_out
-    respond_with asset, location: nil, status: :no_content
+    respond_with asset, location: assets_path, status: :no_content
   end
 
   def check_in
     asset.check_in
-    respond_with asset, location: nil, status: :no_content
+    respond_with asset, location: assets_path, status: :no_content
   end
 
   private

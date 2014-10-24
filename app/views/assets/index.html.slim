@@ -34,5 +34,5 @@ table.table.table-striped.table-bordered.table-hover
         = asset.admin_full_name
       td
         .pull-right
-          = link_to 'Check out', '#', class: 'btn btn-mini btn-primary' if asset.available?
-          = link_to 'Return', '#', class: 'btn btn-mini btn-warning' if asset.checked_out? && asset.borrower_id == current_user.id
+          = link_to 'Check out', check_out_asset_path(asset), method: :put, class: 'btn btn-mini btn-primary' if asset.available?
+          = link_to 'Return', check_in_asset_path(asset), method: :put, class: 'btn btn-mini btn-warning' if asset.checked_out? && asset.borrower_id == current_user.id
