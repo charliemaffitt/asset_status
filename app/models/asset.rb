@@ -19,6 +19,14 @@ class Asset < ActiveRecord::Base
     state :checked_out
   end
 
+  def check_out
+    update_attribute(:status, :checked_out)
+  end
+
+  def check_in
+    update_attribute(:status, :available)
+  end
+
   def titleized_status
     status.to_s.titleize
   end
