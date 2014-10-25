@@ -3,8 +3,8 @@ module Api
     class AssetsController < APIController
 
       def index
-        @assets = Asset.includes(:asset_type).order('asset_types.name')
-        respond_with @assets
+        assets = Asset.includes(:asset_type).order('asset_types.name')
+        respond_with assets
       end
 
       def check_out
