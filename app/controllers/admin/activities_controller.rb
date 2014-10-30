@@ -41,7 +41,7 @@ class Admin::ActivitiesController < Admin::AdminController
     CSV.open("/tmp/activities_export_#{export_timestamp}.csv", "wb") do |csv|
       activities = Activity.order('date DESC')
       activities.each do |activity|
-        csv << [activity.date, activity.location.name, activity.hours, activity.travel_hours, activity.description]
+        csv << [activity.date, activity.location.name, activity.user.full_name, activity.hours, activity.travel_hours, activity.description]
       end
     end
     send_file "/tmp/activities_export_#{export_timestamp}.csv"
