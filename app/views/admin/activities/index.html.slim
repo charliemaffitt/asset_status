@@ -6,7 +6,7 @@ p
   = "#{@activities.count} volunteer activities with a total work hours logged of #{Activity.total_work_hours}"
 
 p
-  = area_chart Activity.where('date > ?', 6.months.ago).group_by_week(:date).sum(:hours)
+  = line_chart Activity.where('date > ?', 6.months.ago).group_by_week(:date).sum(:hours)
 
 p
   = link_to 'Create', new_admin_activity_path
