@@ -6,6 +6,9 @@ p
   = "#{@activities.count} volunteer activities with a total work hours logged of #{Activity.total_work_hours}"
 
 p
+  = line_chart Activity.group_by_day(:date).sum(:hours)
+
+p
   = link_to 'Create', new_admin_activity_path
 
 table.table.table-striped.table-bordered.table-hover
