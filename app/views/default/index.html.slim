@@ -14,4 +14,4 @@ h3
   | Volunteer Pulse
 
 p
-  = area_chart Activity.where('date > ?', 6.months.ago).group_by_week(:date).sum(:hours)
+  = area_chart Activity.where('date > ?', 6.months.ago).group_by_week(:date).sum(:hours), {library: {vAxis: {title: "Hours per Week"}}}
