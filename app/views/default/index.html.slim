@@ -1,11 +1,17 @@
-
 p.sorbalogo
   = image_tag 'sorbalogo_lrg.jpg'
 
 h1 Sorba Athens Inventory App
-
 p
   = link_to 'View Assets', assets_path
 
 p
   = link_to 'Manage Assets (Admins)', admin_dashboard_index_path
+
+.clear
+  
+h3
+  | Volunteer Pulse
+
+p
+  = area_chart Activity.where('date > ?', 6.months.ago).group_by_week(:date).sum(:hours)
