@@ -1,5 +1,4 @@
 class Admin::AssetsController < Admin::AdminController
-  require 'csv'
 
   def index
     @assets = Asset.order('created_at DESC')

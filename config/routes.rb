@@ -30,7 +30,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :activities
+    resources :activities do
+      get :export, on: :collection
+    end
     resources :assets do
       get :export, on: :collection
     end
