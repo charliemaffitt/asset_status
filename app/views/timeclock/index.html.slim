@@ -1,40 +1,53 @@
-h1 TrailLove TimeKeeper
+h1 TrailLove TimeCard
 br
 br
 
-- if @stop_signal.present?
-  p
-    | Start Time: #{@start_signal.start_time}
-  p
-    | Stop Time: #{@stop_signal.stop_time}
-  p
-    | Elapsed Time: #{pluralize(@stop_signal.elapsed_minutes, 'Minute', 'Minutes')}
-  p
-    = link_to "Publish Activity", timeclock_path(@stop_signal), method: :put, class: 'btn btn-large btn-success btn-block'
-  p
-    = link_to "Discard Activity", timeclock_path(@stop_signal), method: :delete, class: 'btn btn-large btn-danger  btn-block'
+- if @activity.present?
+  h1 Activity Published!
 
-- elsif @start_signal.present?
   p
-    | Began activity at #{@start_signal.start_time}
-
-  div#countdown_timer
-  br
-  br  
+    | User: #{@activity.user.full_name}
   p
-    = link_to "End Activity", timeclock_path(@start_signal), method: :put, class: 'btn btn-large btn-danger btn-block'
+    | Hours: #{@activity.hours}
+  p
+    | Location: #{@activity.location.name}
 
-
-    - @time = @start_signal.start_time
-
-    javascript:
-      function start_timer(start_time) {
-          converted_time = new Date(start_time);
-          $('#countdown_timer').countdown({since: converted_time});
-      }
-      var start_time = '#{@time}';
-      start_timer(start_time);
+  h2 Thank you for your time!
 
 - else
-  p
-    = link_to "Start Activity", timeclock_index_path, method: :post, class: 'btn btn-large btn-success btn-block'
+
+  - if @stop_signal.present?
+    p
+      | Start Time: #{@start_signal.start_time}
+    p
+      | Stop Time: #{@stop_signal.stop_time}
+    p
+      | Elapsed Time: #{pluralize(@stop_signal.elapsed_minutes, 'Minute', 'Minutes')}
+    p
+      = link_to "Publish Activity", publish_timeclock_path(@stop_signal), method: :post, class: 'btn btn-large btn-success btn-block'
+    p
+      = link_to "Discard Activity", timeclock_path(@stop_signal), method: :delete, class: 'btn btn-large btn-danger  btn-block'
+
+  - elsif @start_signal.present?
+    p
+      | Began activity at #{@start_signal.start_time}
+
+    div#countdown_timer
+    br
+    br  
+    p
+      = link_to "End Activity", timeclock_path(@start_signal), method: :put, class: 'btn btn-large btn-danger btn-block'
+
+      - @time = @start_signal.start_time
+
+      javascript:
+        function start_timer(start_time) {
+            converted_time = new Date(start_time);
+            $('#countdown_timer').countdown({since: converted_time});
+        }
+        var start_time = '#{@time}';
+        start_timer(start_time);
+
+  - else
+    p
+      = link_to "Start Activity", timeclock_index_path, method: :post, class: 'btn btn-large btn-success btn-block'

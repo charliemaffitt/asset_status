@@ -28,7 +28,9 @@ Rails.application.routes.draw do
       put :check_in
     end
   end
-  resources :timeclock
+  resources :timeclock do
+    post :publish, on: :member
+  end
 
   namespace :admin do
     resources :activities do
