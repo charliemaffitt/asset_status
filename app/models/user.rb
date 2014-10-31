@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :activities, inverse_of: :user
+  has_many :start_signals, inverse_of: :user
 
   def full_name
     [first_name, last_name].join(" ")

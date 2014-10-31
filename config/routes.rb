@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       put :check_in
     end
   end
+  resources :timeclock
 
   namespace :admin do
     resources :activities do

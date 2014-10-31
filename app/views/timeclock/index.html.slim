@@ -1,0 +1,18 @@
+h1 TimeKeeper
+
+- if @stop_signal.present?
+  p
+    = @stop_signal.inspect
+  p
+    = link_to "Publish Activity", timeclock_path(@stop_signal), method: :put
+  p
+    = link_to "Discard Activity", timeclock_path(@stop_signal), method: :delete
+
+- elsif @start_signal.present?
+  p
+    | Began activity at #{@start_signal.start_time}
+  p
+    = link_to "End Activity", timeclock_path(@start_signal), method: :put
+- else
+  p
+    = link_to "Start Activity", timeclock_index_path, method: :post
