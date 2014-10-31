@@ -2,17 +2,37 @@ h1 TimeKeeper
 
 - if @stop_signal.present?
   p
-    = @stop_signal.inspect
+    | Start Time: #{@start_signal.start_time}
   p
-    = link_to "Publish Activity", timeclock_path(@stop_signal), method: :put
+    | Stop Time: #{@stop_signal.stop_time}
   p
-    = link_to "Discard Activity", timeclock_path(@stop_signal), method: :delete
+    | Elapsed Time: #{pluralize(@stop_signal.elapsed_minutes, 'Minute', 'Minutes')}
+  p
+    = link_to "Publish Activity", timeclock_path(@stop_signal), method: :put, class: 'btn btn-large btn-success btn-block'
+  p
+    = link_to "Discard Activity", timeclock_path(@stop_signal), method: :delete, class: 'btn btn-large btn-danger  btn-block'
 
 - elsif @start_signal.present?
   p
     | Began activity at #{@start_signal.start_time}
+
+  div#countdown_timer
   p
-    = link_to "End Activity", timeclock_path(@start_signal), method: :put
+  p
+  p
+    = link_to "End Activity", timeclock_path(@start_signal), method: :put, class: 'btn btn-large btn-danger btn-block'
+
+
+    - @time = @start_signal.start_time
+
+    javascript:
+      function start_timer(start_time) {
+          converted_time = new Date(start_time);
+          $('#countdown_timer').countdown({since: converted_time});
+      }
+      var start_time = '#{@time}';
+      start_timer(start_time);
+
 - else
   p
-    = link_to "Start Activity", timeclock_index_path, method: :post
+    = link_to "Start Activity", timeclock_index_path, method: :post, class: 'btn btn-large btn-success btn-block'
