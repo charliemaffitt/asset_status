@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require jquery.plugin
+//= require jquery.countdown
 //= require_tree .
