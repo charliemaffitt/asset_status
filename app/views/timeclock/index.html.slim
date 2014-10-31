@@ -1,4 +1,6 @@
-h1 TimeKeeper
+h1 TrailLove TimeKeeper
+br
+br
 
 - if @stop_signal.present?
   p
@@ -17,8 +19,8 @@ h1 TimeKeeper
     | Began activity at #{@start_signal.start_time}
 
   div#countdown_timer
-  p
-  p
+  br
+  br  
   p
     = link_to "End Activity", timeclock_path(@start_signal), method: :put, class: 'btn btn-large btn-danger btn-block'
 
