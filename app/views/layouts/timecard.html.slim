@@ -1,0 +1,14 @@
+doctype html
+html lang='en'
+  = render 'shared/head'
+  body
+    .container-fluid
+      .row-fluid.header-margin
+        .span12
+          div.flash_messages
+            = render 'shared/flash_messages'
+          .row-fluid
+            .span1
+            .span10.main-content
+              = yield
+            .span1
