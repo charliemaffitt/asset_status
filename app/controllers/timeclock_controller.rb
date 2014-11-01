@@ -1,6 +1,7 @@
 class TimeclockController < ApplicationController
   before_filter :authenticate_user!
   respond_to :html
+  layout 'timecard'
 
   def index
     @stop_signals = StopSignal.where('created_at > ?', 1.day.ago)
@@ -26,7 +27,7 @@ class TimeclockController < ApplicationController
 
   def publish
     @stop_signal = StopSignal.find(params[:id])
-    @activity = Activity.new(user_id: current_user.id, location_id: @stop_signal.start_signal.location.id, date: @stop_signal.stop_time.to_date, hours: @stop_signal.elapsed_hours.round(1))
+    @activity = Activity.new(user_id: current_user.id, location_id: @stop_signal.start_signal.location.id, date: @stop_signal.stop_time.to_date, hours: @stop_signal.elapsed_rounded_hours)
     @stop_signal.start_signal.destroy if @activity.save!
     respond_with @activity, location: timeclock_index_path
   end

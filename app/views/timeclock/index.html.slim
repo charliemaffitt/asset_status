@@ -1,3 +1,6 @@
+- if user_signed_in?
+  = render 'shared/admin_header'
+
 h1 TrailLove TimeCard
 br
 br
@@ -12,7 +15,7 @@ br
   p
     | Location: #{@activity.location.name}
 
-  h2 Thank you for your time!
+  h2 Thank you for your volunteer time!
 
 - else
 
@@ -22,7 +25,7 @@ br
     p
       | Stop Time: #{@stop_signal.stop_time}
     p
-      | Elapsed Time: #{pluralize(@stop_signal.elapsed_minutes, 'Minute', 'Minutes')}
+      | Elapsed Time (Rounded): #{pluralize(@stop_signal.elapsed_rounded_hours, 'Hour', 'Hours')}
     p
       = link_to "Publish Activity", publish_timeclock_path(@stop_signal), method: :post, class: 'btn btn-large btn-success btn-block'
     p
