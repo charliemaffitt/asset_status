@@ -45,7 +45,8 @@ br
 
       javascript:
         function start_timer(start_time) {
-            converted_time = new Date(start_time);
+            alert(start_time)
+            var converted_time = new Date(start_time);
             $('#countdown_timer').countdown({since: converted_time});
         }
         var start_time = '#{@time}';
