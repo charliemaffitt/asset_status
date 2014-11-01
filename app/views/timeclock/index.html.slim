@@ -49,7 +49,7 @@ br
             var converted_time = new Date(start_time);
             $('#countdown_timer').countdown({since: converted_time});
         }
-        var start_time = '#{@time}';
+        var start_time = '#{@time.to_time.iso8601}';
         start_timer(start_time);
 
   - else
