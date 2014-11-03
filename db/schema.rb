@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20141103201631) do
     t.integer  "location_id"
     t.integer  "user_id"
     t.datetime "start_time"
-    t.datetime "end_time"
+    t.datetime "stop_time"
     t.boolean  "published",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"

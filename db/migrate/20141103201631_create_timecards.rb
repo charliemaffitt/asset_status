@@ -4,7 +4,7 @@ class CreateTimecards < ActiveRecord::Migration
       t.integer :location_id
       t.integer :user_id
       t.datetime :start_time
-      t.datetime :end_time
+      t.datetime :stop_time
       t.boolean :published, default: false
       t.timestamps
     end
