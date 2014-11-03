@@ -1,0 +1,17 @@
+h1
+  | Trail Love Activity
+
+p
+  = @activity.date
+p
+  = @activity.location.name
+p
+  = @activity.user.full_name
+p
+  = @activity.description
+
+br
+br
+
+p
+  = link_to 'Begin New Activity', new_timecard_path, class: 'btn btn-large btn-success'

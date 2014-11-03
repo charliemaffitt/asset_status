@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   #   end
   # end
 
+  resources :activities, only: [:show]
   resources :assets do
     member do
       put :check_out

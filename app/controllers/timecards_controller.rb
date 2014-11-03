@@ -35,9 +35,7 @@ class TimecardsController < ApplicationController
   end
 
   def publish
-    @activity = Activity.new(user_id: current_user.id, location_id: timecard.location.id, date: timecard.stop_time.to_date, hours: timecard.elapsed_rounded_hours)
-    timecard.update_attributes({published: true}) if @activity.save!
-    respond_with @activity, location: timecards_path
+    respond_with timecard.activity, location: activity_path(timecard.activity) if timecard.publish_activity
   end
 
   def destroy
