@@ -1,6 +1,8 @@
 h1
   | New Timecard
 
+  = render 'shared/errors', object: @timecard
+
   = form_for [@timecard] do |f|
 
     p
