@@ -1,8 +1,10 @@
 class Timecard < ActiveRecord::Base
   belongs_to :location, inverse_of: :timecards
   belongs_to :user, inverse_of: :timecards
-  validates :stop_time, presence: true
+  validates :location, presence: true
+  validates :user, presence: true
   validates :start_time, presence: true
+  validates :end_time, presence: true, on: :update
 
   def elapsed_seconds
     stop_time - start_signal.start_time
