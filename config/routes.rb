@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   resources :timeclock do
     post :publish, on: :member
   end
+  resources :timecards do
+    post :publish, on: :member
+  end
 
   namespace :admin do
     resources :activities do
