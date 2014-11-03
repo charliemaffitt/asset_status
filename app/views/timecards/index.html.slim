@@ -4,8 +4,9 @@
 h1 Trail Creek TrailLove TimeCard
 br
 br
-
-
-
-p
-  = link_to "Start Activity", timecards_path, method: :post, class: 'btn btn-large btn-success btn-block'
+- if @unpublished_timecards.present?
+  - @unpublished_timecards.each do |timecard|
+    p You have an unpublished timecard which needs to be either discarded or published #{link_to timecard_path(timecard), timecard_path(timecard)}
+- else
+  p
+    = link_to "Start New Activity", timecards_path, method: :post, class: 'btn btn-large btn-success btn-block'

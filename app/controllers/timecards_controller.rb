@@ -4,8 +4,8 @@ class TimecardsController < ApplicationController
   layout 'timecard'
 
   def index
-    @timecards = Timecard.all
-
+    @active_timecard = current_user.timecards.unpublished.first
+    redirect_to timecard_path(@active_timecard) if @active_timecard.present?
     # @stop_signals = StopSignal.where('created_at > ?', 1.day.ago)
     # @stop_signal = @stop_signals.first if @stop_signals
     # @start_signals = StartSignal.where('created_at > ?', 1.day.ago)

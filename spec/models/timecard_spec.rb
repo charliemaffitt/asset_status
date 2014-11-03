@@ -30,6 +30,26 @@ describe Timecard do
     end
   end
 
+  describe 'scopes' do
+
+  let(:published_timecard) { FactoryGirl.create(:timecard, published: true) }
+  let(:unpublished_timecard) { FactoryGirl.create(:timecard, published: false) }
+
+    describe '.published' do
+      it "returns only timecards with a true published attribute" do
+        expect(Timecard.published).to include(published_timecard)
+        expect(Timecard.published).to_not include(unpublished_timecard)
+      end
+    end
+
+    describe '.unpublished' do
+      it "returns only timecards with a true published attribute" do
+        expect(Timecard.unpublished).to include(unpublished_timecard)
+        expect(Timecard.unpublished).to_not include(published_timecard)
+      end
+    end
+  end
+
   describe "#elapsed_seconds" do
     it "returns the time elapsed between start_time and stop_time in seconds" do
       expect(FactoryGirl.build(:timecard, start_time: 1.minute.ago, stop_time: current_time).elapsed_seconds).to eq 60

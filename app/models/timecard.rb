@@ -6,6 +6,9 @@ class Timecard < ActiveRecord::Base
   validates :start_time, presence: true
   validates :stop_time, presence: true, on: :update
 
+  scope :published, -> { where(published: true) }
+  scope :unpublished, -> { where(published: false) }
+
   def elapsed_seconds
     stop_time - start_time
   end
