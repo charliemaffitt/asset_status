@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103201631) do
+ActiveRecord::Schema.define(version: 20141103225745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,8 +125,10 @@ ActiveRecord::Schema.define(version: 20141103201631) do
     t.boolean  "published",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "activity_id"
   end
 
+  add_index "timecards", ["activity_id"], name: "index_timecards_on_activity_id", using: :btree
   add_index "timecards", ["location_id"], name: "index_timecards_on_location_id", using: :btree
   add_index "timecards", ["user_id"], name: "index_timecards_on_user_id", using: :btree
 
