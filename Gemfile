@@ -60,6 +60,7 @@ end
 
 group :test do
   gem 'factory_girl_rails' #Factory Girl w/ Rails integration
+  gem 'timecop'
 end
 
 # Use Capistrano for deployment
