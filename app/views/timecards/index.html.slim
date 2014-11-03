@@ -1,0 +1,11 @@
+- if user_signed_in?
+  = render 'shared/admin_header'
+
+h1 Trail Creek TrailLove TimeCard
+br
+br
+
+
+
+p
+  = link_to "Start Activity", timecards_path, method: :post, class: 'btn btn-large btn-success btn-block'

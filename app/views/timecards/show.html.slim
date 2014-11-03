@@ -1,0 +1,45 @@
+- if @activity.present?
+  h1 Activity Published!
+
+  p
+    | Volunteer: #{@activity.user.full_name}
+  p
+    | Hours: #{@activity.hours}
+  p
+    | Location: #{@activity.location.name}
+
+  h2 Thank you for your volunteer time!
+
+- else
+
+  - if @timecard.stop_time.present?
+    p
+      | Start Time: #{@timecard.start_time}
+    p
+      | Stop Time: #{@timecard.stop_time}
+    p
+      | Elapsed Time (Rounded): #{pluralize(@timecard.elapsed_rounded_hours, 'Hour', 'Hours')}
+    p
+      = link_to "Publish Activity", publish_timecard_path(@timecard), method: :post, class: 'btn btn-large btn-success btn-block'
+    p
+      = link_to "Discard Activity", timecard_path(@timecard), method: :delete, class: 'btn btn-large btn-danger  btn-block'
+
+  - else
+    p
+      | Began activity at #{@timecard.start_time}
+
+    div#countdown_timer
+    br
+    br  
+    p
+      = link_to "End Activity", timecard_path(@timecard), method: :put, class: 'btn btn-large btn-danger btn-block'
+
+      - @time = @timecard.start_time
+
+      javascript:
+        function start_timer(start_time) {
+            var converted_time = new Date(start_time);
+            $('#countdown_timer').countdown({since: converted_time});
+        }
+        var start_time = '#{@time.to_time.iso8601}';
+        start_timer(start_time);

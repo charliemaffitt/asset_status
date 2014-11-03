@@ -4,10 +4,10 @@ class Timecard < ActiveRecord::Base
   validates :location, presence: true
   validates :user, presence: true
   validates :start_time, presence: true
-  validates :end_time, presence: true, on: :update
+  validates :stop_time, presence: true, on: :update
 
   def elapsed_seconds
-    stop_time - start_signal.start_time
+    stop_time - start_time
   end
 
   def elapsed_minutes
