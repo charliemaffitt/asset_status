@@ -1,0 +1,10 @@
+h1
+  | New Timecard
+
+  = form_for [@timecard] do |f|
+
+    p
+      = f.label :location_id
+      = f.select :location_id, Location.all.collect { |u| [u.name, u.id] }, prompt: 'Please Select'
+
+    = f.submit 'Start New Activity', class: 'btn btn-large btn-success btn-block'

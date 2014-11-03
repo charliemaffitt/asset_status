@@ -10,5 +10,11 @@ html lang='en'
           .row-fluid
             .span1
             .span10.main-content
+              - if user_signed_in?
+                = render 'shared/admin_header'
+
+              h1 Trail Creek TrailLove TimeCard
+              br
+              br
               = yield
             .span1
