@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103225745) do
+ActiveRecord::Schema.define(version: 20141103234904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 20141103225745) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "activity_id"
+    t.text     "notes"
   end
 
   add_index "timecards", ["activity_id"], name: "index_timecards_on_activity_id", using: :btree
