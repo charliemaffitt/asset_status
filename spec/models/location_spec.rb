@@ -8,6 +8,7 @@ describe Location do
     end
 
     it "is not valid without a name" do
+      expect(FactoryGirl.build(:location, name: nil)).to_not be_valid
     end
   end
 end
