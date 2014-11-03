@@ -2,16 +2,20 @@ h1
   | Trail Love Activity
 
 p
-  = @activity.date
+  | Volunteer: #{@activity.user.full_name}
 p
-  = @activity.location.name
+  | Date: #{@activity.date}
 p
-  = @activity.user.full_name
+  | Hours: #{@activity.hours}
 p
-  = @activity.description
+  | Location: #{@activity.location.name}
+
+h2 Thank you for your volunteer time!
 
 br
 br
 
 p
   = link_to 'Begin New Activity', new_timecard_path, class: 'btn btn-large btn-success'
+p
+  = link_to 'View all my Activities', activities_path, class: 'btn btn-large btn-primary'
