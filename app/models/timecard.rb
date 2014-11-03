@@ -10,15 +10,13 @@ class Timecard < ActiveRecord::Base
     stop_time - start_time
   end
 
-  def elapsed_minutes
-    elapsed_seconds.round(0) / 60
+  def elapsed_rounded_hours
+    (elapsed_hours * 4).round / 4.0
   end
+
+  private
 
   def elapsed_hours
     ((elapsed_seconds / 60) / 60).round(2)
-  end
-
-  def elapsed_rounded_hours
-    (elapsed_hours * 4).round / 4.0
   end
 end
