@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  database: sorba_development
+  database: sorba_development_test
   pool: 5
   timeout: 5000
   min_messages: WARNING

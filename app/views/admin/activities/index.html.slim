@@ -6,6 +6,9 @@ p
   = "#{@activities.count} volunteer activities with a total work hours logged of #{Activity.total_work_hours}"
 
 p
+  = column_chart Activity.where('date > ?', 6.months.ago).group_by_month(:date, format: "%b").sum(:hours)
+
+p
   = area_chart Activity.where('date > ?', 6.months.ago).group_by_week(:date).sum(:hours)
 
 p

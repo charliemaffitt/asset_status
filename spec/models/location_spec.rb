@@ -15,7 +15,7 @@ describe Location do
   describe ".total_work_hours" do
 
     let(:location)          { FactoryGirl.create(:location) }
-    let(:second_location)   { FactoryGirl.create(:location)}
+    let(:second_location)   { FactoryGirl.create(:location) }
     let!(:first_activity)   { FactoryGirl.create(:activity, hours: 17.0, location: location) }
     let!(:second_activity)  { FactoryGirl.create(:activity, hours: 3.0, location: location) }
     let!(:third_activity)   { FactoryGirl.create(:activity, hours: 8.5, location: second_location) }
@@ -25,6 +25,5 @@ describe Location do
       expect(location.total_work_hours).to eq 20.0
       expect(second_location.total_work_hours).to eq 8.5
     end
-
   end
 end
