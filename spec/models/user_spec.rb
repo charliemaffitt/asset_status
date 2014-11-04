@@ -23,4 +23,13 @@ describe User do
       expect(FactoryGirl.build(:user, last_name: nil)).to_not be_valid
     end
   end
+
+  describe "#full_name" do
+
+    let(:user) { FactoryGirl.build(:user, first_name: 'Rusty', last_name: 'Shackleford') }
+
+    it "returns a single string containing a formatted first and last name" do
+      expect(user.full_name).to eq 'Rusty Shackleford'
+    end
+  end
 end
