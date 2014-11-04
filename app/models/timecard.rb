@@ -26,6 +26,6 @@ class Timecard < ActiveRecord::Base
   private
 
   def elapsed_hours
-    ((elapsed_seconds / 60) / 60).round(2)
+    (elapsed_seconds / 3600).round(2)
   end
 end
