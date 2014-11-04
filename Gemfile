@@ -62,6 +62,7 @@ group :test do
   gem 'factory_girl_rails' #Factory Girl w/ Rails integration
   gem 'timecop'
   gem 'simplecov', require: false
+  gem 'database_cleaner'
 end
 
 # Use Capistrano for deployment
