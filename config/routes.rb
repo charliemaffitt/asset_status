@@ -29,9 +29,6 @@ Rails.application.routes.draw do
       put :check_in
     end
   end
-  resources :timeclock do
-    post :publish, on: :member
-  end
   resources :timecards do
     post :publish, on: :member
     patch :punchout, on: :member
