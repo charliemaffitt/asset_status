@@ -25,17 +25,26 @@ class TimecardsController < ApplicationController
     end
   end
 
+  def edit
+    @timecard = current_user.timecards.find(params[:id])
+    
+  end
+
   def show
     respond_with timecard
   end
 
   def update
-    timecard.update_attributes({stop_time: Time.now})
-    respond_with timecard
+    if timecard.update_attributes(timecard_params) && timecard.publish_activity
+      respond_with timecard.activity, location: activity_path(timecard.activity)
+    else
+      render 'edit'
+    end
   end
 
-  def publish
-    respond_with timecard.activity, location: activity_path(timecard.activity) if timecard.publish_activity
+  def punchout
+    timecard.update_attributes({stop_time: Time.now})
+    respond_with timecard, location: edit_timecard_path(timecard)
   end
 
   def destroy
@@ -46,7 +55,7 @@ class TimecardsController < ApplicationController
   private
 
   def timecard_params
-    params.require(:timecard).permit(:location_id, :start_time, :stop_time)
+    params.require(:timecard).permit(:location_id, :notes, :start_time, :stop_time)
   end
 
   def timecard

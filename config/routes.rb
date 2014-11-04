@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   end
   resources :timecards do
     post :publish, on: :member
+    patch :punchout, on: :member
   end
 
   namespace :admin do

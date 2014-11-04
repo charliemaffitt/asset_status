@@ -1,0 +1,26 @@
+= render 'shared/errors', object: @timecard
+
+= form_for [@timecard] do |f|
+
+  - if @timecard.new_record?
+    p
+      = f.label :location_id
+      = f.select :location_id, Location.all.collect { |u| [u.name, u.id] }, prompt: 'Please Select'
+  - else
+    p
+      | Start Time: #{@timecard.start_time}
+    p
+      | Stop Time: #{@timecard.stop_time}
+    p
+      | Elapsed Time (Rounded): #{pluralize(@timecard.elapsed_rounded_hours, 'Hour', 'Hours')}
+    p
+      = f.label :notes
+      = f.text_area :notes
+
+  - if @timecard.new_record?
+    = f.submit 'Start New Activity', class: 'btn btn-large btn-success btn-block'
+  - else
+    p
+      = f.submit 'Publish Activity', class: 'btn btn-large btn-success btn-block'
+    p
+      = link_to "Discard Activity", timecard_path(@timecard), method: :delete, class: 'btn btn-large btn-danger  btn-block'

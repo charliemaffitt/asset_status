@@ -19,7 +19,7 @@ class Timecard < ActiveRecord::Base
   end
 
   def publish_activity
-    activity = user.activities.create(location_id: location.id, date: stop_time.to_date, hours: elapsed_rounded_hours)
+    activity = user.activities.create(location_id: location.id, date: stop_time.to_date, hours: elapsed_rounded_hours, description: notes)
     update_attributes({activity_id: activity.id, published: true}) if activity.save!
   end
 

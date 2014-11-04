@@ -11,20 +11,6 @@
   h2 Thank you for your volunteer time!
 
 - else
-
-  - if @timecard.stop_time.present?
-    p
-      | Start Time: #{@timecard.start_time}
-    p
-      | Stop Time: #{@timecard.stop_time}
-    p
-      | Elapsed Time (Rounded): #{pluralize(@timecard.elapsed_rounded_hours, 'Hour', 'Hours')}
-    p
-      = link_to "Publish Activity", publish_timecard_path(@timecard), method: :post, class: 'btn btn-large btn-success btn-block'
-    p
-      = link_to "Discard Activity", timecard_path(@timecard), method: :delete, class: 'btn btn-large btn-danger  btn-block'
-
-  - else
     p
       | Began activity at #{@timecard.start_time}
 
@@ -32,7 +18,7 @@
     br
     br  
     p
-      = link_to "End Activity", timecard_path(@timecard), method: :put, class: 'btn btn-large btn-danger btn-block'
+      = link_to "End Activity", punchout_timecard_path(@timecard), method: :patch, class: 'btn btn-large btn-danger btn-block'
 
       - @time = @timecard.start_time
 
