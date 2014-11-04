@@ -50,6 +50,26 @@ describe Timecard do
     end
   end
 
+  describe "#publish_activity" do
+
+    let(:timecard)  { FactoryGirl.create(:timecard, stop_time: current_time) }
+
+    it "returns true" do
+      expect(timecard.publish_activity).to be_true
+    end
+
+    it "creates an activity" do
+      timecard.publish_activity
+      expect(timecard.activity).to be_present
+      expect(timecard.activity.hours).to eq timecard.elapsed_rounded_hours
+    end
+
+    it "marks itself as published" do
+      timecard.publish_activity
+      expect(timecard.published).to be_true
+    end
+  end
+
   describe "#elapsed_seconds" do
     it "returns the time elapsed between start_time and stop_time in seconds" do
       expect(FactoryGirl.build(:timecard, start_time: 1.minute.ago, stop_time: current_time).elapsed_seconds).to eq 60
