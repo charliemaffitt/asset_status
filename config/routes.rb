@@ -16,11 +16,11 @@ Rails.application.routes.draw do
   #   resources :products
 
   use_doorkeeper
-  # scope 'api' do
-  #   scope 'v1' do
-  #     # use_doorkeeper
-  #   end
-  # end
+  scope 'api' do
+    scope 'v1' do
+      use_doorkeeper
+    end
+  end
 
   resources :activities, only: [:index, :show]
   resources :assets do
