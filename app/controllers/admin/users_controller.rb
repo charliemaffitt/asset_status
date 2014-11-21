@@ -10,7 +10,7 @@ class Admin::UsersController < Admin::AdminController
 
   def create
     @user = User.new(user_params)
-    if @user.invite!
+    if @user.save
       respond_with @user, location: admin_users_path
     else
       render 'new'
